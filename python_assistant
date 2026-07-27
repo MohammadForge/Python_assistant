@@ -1,0 +1,171 @@
+from datetime import datetime
+
+Tasks = []
+
+
+def calculator():
+
+    print('\n -----CALCULATOR-----')
+    num_1 = int(input('Enter first number: '))
+    num_2 = input('Choose(+,-,*,/): ')
+    num_3 = int(input('Enter second number: '))
+
+    if num_2 == '+':
+        print(num_1 + num_3)
+    
+    elif num_2 == '-':
+        print(num_1 - num_3)
+
+    elif num_2 == '*':
+        print(num_1 * num_3)
+
+    elif num_2 == '/':
+        if num_3 == 0:
+            print('Cannot divide by zero!')
+        else:
+            print(num_1 / num_3)
+
+def chatbot():
+
+    print('\n -----CHATBOT-----')
+
+    message = input('You: ').lower()
+
+    if message == 'hello' or message == 'Hello':
+        print('Hello!')
+
+    elif message == 'how are you' or message == 'How are you?':
+        print('Im Good How Are You?')
+
+    elif message == 'Im good' or message == 'im good thanks':
+        print('Cool!')
+
+    elif message == 'Whats your name?' or message == 'whats your name':
+        print('My Name Is Python Assistant!')
+
+    elif message == 'Who made you?' or message == 'who made you':
+        print('My developer is Mohammad Hasani!')
+
+    elif message == 'do you like chatGPT?: ' or message == 'Do you like AI':
+        print('No Thanks Im better!')
+
+    elif message == 'who is the best football player?':
+        print('Might be ronaldo or messi!')
+
+    elif message == 'Are you AI based?': 
+        print('No i use python to answer you!')
+
+    else: 
+        print('I dont understand!')
+
+    
+    
+def show_time():
+    now = datetime.now()
+    print('\n -----TIME-----') 
+    print(now.strftime('%H : %M : %S'))
+    print('DATE:' , now.strftime('%Y -%m -%d'))
+    
+def task_manager():
+    while True: 
+        print('\n -----TASK MANAGER-----')
+        print('1.add task')
+        print('2.show task')
+        print('3.delete task')
+        print('4.back')
+
+        choice_2  = input('Select: ')
+
+        if choice_2 == '1': 
+            task = input('Task name: ')
+            Tasks.append(task)
+            print('Added!')
+
+        elif choice_2 == '2' :
+            if len(Tasks) == 0: 
+                print('No tasks')
+            else: 
+                for i , task in enumerate(Tasks):
+                    print(f"{i + 1}. {task}")
+
+        elif choice_2 == '3': 
+            number = int(input('Choose a task to delete: '))
+            if number > 0 and number <= len(Tasks):
+                Tasks.pop(number - 1)
+            else:
+                print('Invaild Number!')
+
+        answer = input('\n Do you want to go back to menu?')
+        if answer.lower() != 'y':
+            break
+
+        elif choice_2 == '4': 
+            break  
+
+        
+def bmi(): 
+    print('\n -----BMI CALCULATOR-----')
+    weight = float(input('Enter Your weight(kg): '))
+    height = float(input('Enter Your Height(m): '))
+
+    result = weight / height **2 
+
+    print('BMI: ', round(result))
+
+    if result < 18.5 :
+        print('You are Underweight!')
+
+    elif result < 25: 
+        print('You weight normal')
+
+    elif result < 30: 
+        print('You are overweight!')
+
+
+    else: 
+        print('SORRY?')
+
+
+
+while True:
+    print('\n ======WELCOME======')
+    print('1.Calculator')
+    print('2.Chatbot')
+    print('3.Time & date')
+    print('4.Task manager')
+    print('5.Bmi calculator')
+    print('6.Developers Email')
+    print('7.Exit')
+    print('=====================')
+
+    choice = input('Select: ')
+
+    if choice == '1':
+        calculator()
+        
+    elif choice == '2':
+        chatbot()
+
+    elif choice == '3':
+        show_time()
+
+    elif choice == '4':
+        task_manager()
+
+    elif choice == '5':
+        bmi()
+
+    elif choice == '6': 
+        print('Mha53571559@gmail.com')
+        print('If you want to collab contact us!')
+
+    elif choice == '7':
+        print('Goodbye!')
+        break
+
+    else: 
+        print('invalid option!')
+
+    answer = input('\n Do you want to go back to menu?')
+    if answer.lower() != 'y':
+        break
